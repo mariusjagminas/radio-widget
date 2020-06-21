@@ -47,10 +47,6 @@
   height: auto;
 }
 
-/* .wrapperExpand {
-  height: 0;
-} */
-
-.station:nth-child(2) > .wrapper {
+.activeStation > .wrapper {
   height: 170px;
 }

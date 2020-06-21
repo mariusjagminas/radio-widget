@@ -1,11 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Widget from "./Widget/Widget";
+import Widget from "./components/Widget";
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Widget />
+    <Provider store={store}>
+      <Widget />
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
