@@ -1,0 +1,56 @@
+.station {
+  list-style: none;
+  margin: 0;
+  margin: 0 auto;
+  width: 290px;
+}
+
+.button {
+  background: none;
+  border: none;
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+}
+
+.station:last-child > .button {
+  border: none;
+}
+
+.stationName,
+.stationFrequency {
+  color: #a2abbd;
+  font-size: 22px;
+  margin: 16px 0;
+  padding: 0;
+}
+
+.wrapper {
+  height: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+
+.imageWrapper {
+  width: 142px;
+  height: 142px;
+  overflow: hidden;
+  border-radius: 100px;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+/* .wrapperExpand {
+  height: 0;
+} */
+
+.station:nth-child(2) > .wrapper {
+  height: 170px;
+}
