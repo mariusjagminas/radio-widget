@@ -4,7 +4,7 @@ import { IconContext } from "react-icons";
 import { BsPower } from "react-icons/bs";
 import { IoIosArrowBack } from "react-icons/io";
 import { useDispatch } from "react-redux";
-import { UNSET_ACTIVE_STATION } from "../../store/store";
+import { unsetActiveStation } from "../../redux/actions";
 
 const Header: React.FC = () => {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const Header: React.FC = () => {
       <IconContext.Provider value={{ color: "#ffffff", size: "30px" }}>
         <button
           className={styles.powerButton}
-          onClick={() => dispatch({ type: UNSET_ACTIVE_STATION })}
+          onClick={() => dispatch(unsetActiveStation())}
         >
           <BsPower />
         </button>

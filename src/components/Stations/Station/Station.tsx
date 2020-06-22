@@ -6,14 +6,15 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 import { AiOutlineMinusCircle } from "react-icons/ai";
 import image from "../../../assets/image.jpg";
 import { useSelector, useDispatch } from "react-redux";
-import { SET_ACTIVE_STATION, State } from "../../../store/store";
+import { setActiveStation } from "../../../redux/actions";
+import { WidgetState } from "../../../redux/reduxTypes";
 
-interface StationProps {
+interface Props {
   station: StationInter;
 }
 
-const Station: React.FC<StationProps> = ({ station }) => {
-  const stationName = useSelector((state: State) => state.stationName);
+const Station: React.FC<Props> = ({ station }) => {
+  const stationName = useSelector((state: WidgetState) => state.stationName);
   const dispatch = useDispatch();
 
   const activeStationClass =
@@ -36,9 +37,7 @@ const Station: React.FC<StationProps> = ({ station }) => {
       </div>
       <button
         className={styles.button}
-        onClick={() =>
-          dispatch({ type: SET_ACTIVE_STATION, payload: station.stationName })
-        }
+        onClick={() => dispatch(setActiveStation(station.stationName))}
       >
         <p className={styles.stationName}>{station.stationName}</p>
         <p className={styles.stationFrequency}>{station.stationFrequency}</p>
