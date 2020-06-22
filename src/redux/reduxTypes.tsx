@@ -14,3 +14,8 @@ export interface UnsetActiveStation {
 }
 
 export type WidgetActions = SetActiveStation | UnsetActiveStation;
+
+export interface StationData {
+  stationName: string;
+  stationFrequency: string;
+}

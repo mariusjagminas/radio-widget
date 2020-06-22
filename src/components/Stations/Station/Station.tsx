@@ -1,5 +1,4 @@
 import React from "react";
-import { StationInter } from "../stationsList";
 import styles from "./Station.module.css";
 import { IconContext } from "react-icons";
 import { AiOutlinePlusCircle } from "react-icons/ai";
@@ -7,10 +6,10 @@ import { AiOutlineMinusCircle } from "react-icons/ai";
 import image from "../../../assets/image.jpg";
 import { useSelector, useDispatch } from "react-redux";
 import { setActiveStation } from "../../../redux/actions";
-import { WidgetState } from "../../../redux/reduxTypes";
+import { WidgetState, StationData } from "../../../redux/reduxTypes";
 
 interface Props {
-  station: StationInter;
+  station: StationData;
 }
 
 const Station: React.FC<Props> = ({ station }) => {

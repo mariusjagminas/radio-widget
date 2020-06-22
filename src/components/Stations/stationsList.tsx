@@ -1,9 +1,6 @@
-export interface StationInter {
-  stationName: string;
-  stationFrequency: string;
-}
+import { StationData } from "../../redux/reduxTypes";
 
-const stationsList: Array<StationInter> = [
+const stationsList: Array<StationData> = [
   { stationName: "Putin FM", stationFrequency: "66,6" },
   { stationName: "Dribble FM", stationFrequency: "101,2" },
   { stationName: "Doge FM", stationFrequency: "99,4" },
