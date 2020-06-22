@@ -8,12 +8,14 @@ const Footer: React.FC = () => {
 
   return (
     <div className={styles.footer}>
-      {state.stationName && (
-        <>
-          <p className={styles.description}>currently playing</p>
-          <p className={styles.stationName}>{state.stationName}</p>
-        </>
-      )}
+      <div
+        className={`${styles.wrapper} ${
+          state.stationName ? styles.isVisible : null
+        }`}
+      >
+        <p className={styles.description}>currently playing</p>
+        <p className={styles.stationName}>{state.stationName}</p>
+      </div>
     </div>
   );
 };

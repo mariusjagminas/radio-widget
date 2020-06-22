@@ -22,4 +22,11 @@
   background: none;
   border: none;
   padding-right: 18px;
+  outline: none;
+  opacity: 1;
+  transition: opacity 0.2s ease-in;
+}
+
+.powerButton:hover {
+  opacity: 0.4;
 }

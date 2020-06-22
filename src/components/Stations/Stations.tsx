@@ -1,15 +1,15 @@
 import React from "react";
-import styles from "./Stations.module.css";
 import stationsList from "./stationsList";
 import Station from "./Station/Station";
+import { Scrollbars } from "react-custom-scrollbars";
 
 const Stations: React.FC = () => {
   return (
-    <ul className={styles.stations}>
+    <Scrollbars style={{ height: 345 }} autoHide>
       {stationsList.map((station) => (
         <Station key={station.stationName} station={station} />
       ))}
-    </ul>
+    </Scrollbars>
   );
 };
 

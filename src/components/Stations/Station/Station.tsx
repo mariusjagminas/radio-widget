@@ -14,23 +14,24 @@ interface StationProps {
 
 const Station: React.FC<StationProps> = ({ station }) => {
   const stationName = useSelector((state: State) => state.stationName);
+  const dispatch = useDispatch();
+
   const activeStationClass =
     stationName === station.stationName ? styles.activeStation : null;
-  const dispatch = useDispatch();
 
   return (
     <li className={`${styles.station} ${activeStationClass}`}>
-      <div className={`${styles.wrapper} ${styles.wrapperExpand} `}>
+      <div className={styles.wrapper}>
         <IconContext.Provider value={{ color: "#a2abbd", size: "41px" }}>
-          <div className={styles.volumeBtn}>
+          <button className={styles.volumeBtn}>
             <AiOutlinePlusCircle />
-          </div>
+          </button>
           <div className={styles.imageWrapper}>
             <img className={styles.image} src={image} alt="drop" />
           </div>
-          <div className={styles.volumeBtn}>
+          <button className={styles.volumeBtn}>
             <AiOutlineMinusCircle />
-          </div>
+          </button>
         </IconContext.Provider>
       </div>
       <button
