@@ -13,6 +13,13 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   justify-content: space-between;
+  outline: none;
+  opacity: 1;
+  transition: opacity 0.2s ease-in;
+}
+
+.button:hover {
+  opacity: 0.6;
 }
 
 .station:last-child > .button {
@@ -33,6 +40,7 @@
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
+  transition: height 0.2s ease-out;
 }
 
 .imageWrapper {
@@ -47,10 +55,18 @@
   height: auto;
 }
 
-/* .wrapperExpand {
-  height: 0;
-} */
+.volumeBtn {
+  background: none;
+  border: none;
+  outline: none;
+  opacity: 1;
+  transition: opacity 0.2s ease-in;
+}
 
-.station:nth-child(2) > .wrapper {
+.volumeBtn:hover {
+  opacity: 0.4;
+}
+
+.activeStation > .wrapper {
   height: 170px;
 }

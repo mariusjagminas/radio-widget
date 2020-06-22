@@ -9,6 +9,9 @@ const stationsList: Array<StationInter> = [
   { stationName: "Doge FM", stationFrequency: "99,4" },
   { stationName: "Ballads FM", stationFrequency: "87,1" },
   { stationName: "Maximum FM", stationFrequency: "142,2" },
+  { stationName: "Rmf FM", stationFrequency: "142,2" },
+  { stationName: "Eska FM", stationFrequency: "142,2" },
+  { stationName: "Vox FM", stationFrequency: "142,2" },
 ];
 
 export default stationsList;

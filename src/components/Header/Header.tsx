@@ -3,8 +3,12 @@ import styles from "./Header.module.css";
 import { IconContext } from "react-icons";
 import { BsPower } from "react-icons/bs";
 import { IoIosArrowBack } from "react-icons/io";
+import { useDispatch } from "react-redux";
+import { unsetActiveStation } from "../../redux/actions";
 
 const Header: React.FC = () => {
+  const dispatch = useDispatch();
+
   return (
     <div className={styles.header}>
       <IconContext.Provider value={{ color: "#ffffff", size: "38px" }}>
@@ -14,7 +18,10 @@ const Header: React.FC = () => {
       </IconContext.Provider>
       <p className={styles.title}>stations</p>
       <IconContext.Provider value={{ color: "#ffffff", size: "30px" }}>
-        <button className={styles.powerButton}>
+        <button
+          className={styles.powerButton}
+          onClick={() => dispatch(unsetActiveStation())}
+        >
           <BsPower />
         </button>
       </IconContext.Provider>

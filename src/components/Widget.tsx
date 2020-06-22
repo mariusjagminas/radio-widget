@@ -6,13 +6,11 @@ import Footer from "./Footer/Footer";
 
 const Widget: React.FC = () => {
   return (
-    <>
-      <div className={styles.widget}>
-        <Header />
-        <Stations />
-        <Footer />
-      </div>
-    </>
+    <div className={styles.widget}>
+      <Header />
+      <Stations />
+      <Footer />
+    </div>
   );
 };
 
