@@ -9,7 +9,9 @@ const Footer: React.FC = () => {
   return (
     <div className={styles.footer}>
       <div
-        className={`${styles.wrapper} ${stationName ? styles.isVisible : null}`}
+        className={styles.wrapper}
+        style={{ opacity: stationName ? 1 : 0 }}
+        data-testid="footer currently playing"
       >
         <p className={styles.description}>currently playing</p>
         <p className={styles.stationName}>{stationName}</p>

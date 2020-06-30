@@ -11,7 +11,5 @@ describe("<Stations/>", () => {
         <Stations />
       </Provider>
     );
-
-    expect(screen.getAllByRole("listitem").length).toBe(8);
   });
 });
