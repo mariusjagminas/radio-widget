@@ -1,16 +1,23 @@
 import React from "react";
-import { render, fireEvent, screen } from "@testing-library/react";
+import { render, fireEvent, screen, cleanup } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Widget from "./Widget";
 import { Provider } from "react-redux";
 import store from "../redux/store";
+import { UNSET_ACTIVE_STATION, RESET_STATE } from "../redux/actions";
 
 describe("<Widget/>", () => {
-  render(
-    <Provider store={store}>
-      <Widget />
-    </Provider>
-  );
+  beforeEach(() => {
+    render(
+      <Provider store={store}>
+        <Widget />
+      </Provider>
+    );
+  });
+
+  afterEach(() => {
+    store.dispatch({ type: RESET_STATE });
+  });
 
   it("should render title in the header", () => {
     expect(screen.getByText(/stations/i)).toBeInTheDocument();
@@ -24,24 +31,34 @@ describe("<Widget/>", () => {
     expect(screen.getAllByRole("listitem").length).toBe(8);
   });
 
-  it.only("station name should not be visible in footer", () => {
+  it("station name should not be visible in footer", () => {
     expect(screen.getByTestId("footer currently playing")).not.toBeVisible();
   });
 
   ///////////////
 
-  it("station name should not be visible in footer", () => {
-    expect(screen.getByTestId("footer currently playing")).not.toHaveClass(
-      "isActive"
-    );
+  it("should display current station name in footer when station is selected", () => {
+    const footer = screen.getByTestId("footer currently playing");
+    const station = screen.getByText(/putin fm/i).parentElement;
 
-    const station = screen.getByText(/putin fm/i);
+    expect(footer).not.toBeVisible();
+
     userEvent.click(station);
 
-    expect(screen.getByTestId("footer currently playing")).not.toHaveClass(
-      "isActive"
-    );
+    expect(screen.getByTestId("footer currently playing")).toBeVisible();
+  });
 
-    // screen.debug(station);
+  it("footer should be empty when power button is clicked", () => {
+    const powerBtn = screen.getByLabelText("power button");
+    const station = screen.getByText(/putin fm/i).parentElement;
+    const footer = screen.getByTestId("footer currently playing");
+
+    expect(footer).not.toBeVisible();
+    userEvent.click(station);
+    expect(footer).toBeVisible();
+
+    userEvent.click(powerBtn);
+
+    expect(footer).not.toBeVisible();
   });
 });

@@ -1,4 +1,8 @@
-import { SET_ACTIVE_STATION, UNSET_ACTIVE_STATION } from "./actions";
+import {
+  SET_ACTIVE_STATION,
+  UNSET_ACTIVE_STATION,
+  RESET_STATE,
+} from "./actions";
 
 export interface WidgetState {
   stationName: string | null;
@@ -13,7 +17,11 @@ export interface UnsetActiveStation {
   type: typeof UNSET_ACTIVE_STATION;
 }
 
-export type WidgetActions = SetActiveStation | UnsetActiveStation;
+export interface ResetState {
+  type: typeof RESET_STATE;
+}
+
+export type WidgetActions = SetActiveStation | UnsetActiveStation | ResetState;
 
 export interface StationData {
   stationName: string;
