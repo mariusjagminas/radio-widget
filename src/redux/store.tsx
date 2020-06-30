@@ -11,7 +11,10 @@ const initialState: WidgetState = { stationName: null };
 
 const store = createStore(reducer, composeWithDevTools());
 
-function reducer(state = initialState, action: WidgetActions): WidgetState {
+export function reducer(
+  state = initialState,
+  action: WidgetActions
+): WidgetState {
   switch (action.type) {
     case SET_ACTIVE_STATION:
       return { stationName: action.payload };
