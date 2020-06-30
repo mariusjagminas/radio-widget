@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event";
 import Widget from "./Widget";
 import { Provider } from "react-redux";
 import store from "../redux/store";
-import { UNSET_ACTIVE_STATION, RESET_STATE } from "../redux/actions";
+import { RESET_STATE } from "../redux/actions";
 
 describe("<Widget/>", () => {
   beforeEach(() => {
@@ -31,13 +31,13 @@ describe("<Widget/>", () => {
     expect(screen.getAllByRole("listitem").length).toBe(8);
   });
 
-  it("station name should not be visible in footer", () => {
+  it("should render the footer with no station name in it", () => {
     expect(screen.getByTestId("footer currently playing")).not.toBeVisible();
   });
 
   ///////////////
 
-  it("should display current station name in footer when station is selected", () => {
+  it("station name should be visible in footer when station is selected", () => {
     const footer = screen.getByTestId("footer currently playing");
     const station = screen.getByText(/putin fm/i).parentElement;
 
@@ -48,7 +48,31 @@ describe("<Widget/>", () => {
     expect(screen.getByTestId("footer currently playing")).toBeVisible();
   });
 
-  it("footer should be empty when power button is clicked", () => {
+  it("station name in footer should be same as active station", () => {
+    expect(screen.getAllByText(/putin fm/i).length).toBe(1);
+    const station = screen.getByText(/putin fm/i).parentElement;
+
+    userEvent.click(station);
+
+    expect(screen.getAllByText(/putin fm/i).length).toBe(2);
+  });
+
+  it("should display correct station name in when station is changed", () => {
+    const station1 = screen.getByText(/putin fm/i).parentElement;
+    const station2 = screen.getByText(/doge fm/i).parentElement;
+
+    userEvent.click(station1);
+
+    expect(screen.getAllByText(/putin fm/i).length).toBe(2);
+    expect(screen.getAllByText(/doge fm/i).length).toBe(1);
+
+    userEvent.click(station2);
+
+    expect(screen.getAllByText(/putin fm/i).length).toBe(1);
+    expect(screen.getAllByText(/doge fm/i).length).toBe(2);
+  });
+
+  it("station name in footer shouldn't be visible when power button is clicked", () => {
     const powerBtn = screen.getByLabelText("power button");
     const station = screen.getByText(/putin fm/i).parentElement;
     const footer = screen.getByTestId("footer currently playing");
