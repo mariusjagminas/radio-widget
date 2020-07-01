@@ -28,4 +28,4 @@ Demo of UI component with simple functionality, built with [Create React App](ht
    npm start
    ```
 
-The server will open the browser at `localhost: 3000`, and you will see the widget live.
+The server will launch the browser, and you will see the widget live on `localhost:3000`
