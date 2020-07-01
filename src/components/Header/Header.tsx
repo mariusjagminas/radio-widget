@@ -19,6 +19,7 @@ const Header: React.FC = () => {
       <p className={styles.title}>stations</p>
       <IconContext.Provider value={{ color: "#ffffff", size: "30px" }}>
         <button
+          aria-label="power button"
           className={styles.powerButton}
           onClick={() => dispatch(unsetActiveStation())}
         >

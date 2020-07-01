@@ -2,6 +2,7 @@ import { SetActiveStation, UnsetActiveStation } from "./reduxTypes";
 
 export const SET_ACTIVE_STATION = "SET_ACTIVE_STATION";
 export const UNSET_ACTIVE_STATION = "UNSET_ACTIVE_STATION";
+export const RESET_STATE = "RESET_STATE";
 
 export function setActiveStation(stationName: string): SetActiveStation {
   return {
